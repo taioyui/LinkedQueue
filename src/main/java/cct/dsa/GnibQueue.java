@@ -12,7 +12,7 @@ public class GnibQueue {
 
     public GnibQueue(UserBuilder userBuilder, InputValidation validation) {
         this.userBuilder = userBuilder;
-        this.validation=validation;
+        this.validation = validation;
     }
 
 
@@ -60,6 +60,20 @@ public class GnibQueue {
     }
 
 
+    public void addUser() throws ParseException, IOException, ClassNotFoundException {
+        User newUser = userBuilder.buildNewUser();
+        int i = 0;
+        if (newUser.children.toLowerCase().equals("y")) {
+            while (queue.get(i).getSmallChildren().toLowerCase().equals("y")) {
+                i = i + 3;
+            }
+            queue.add(i, newUser);
+        } else {
+            queue.add(newUser);
+        }
+    }
+
+
     public void findUser() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Input id");
@@ -75,9 +89,5 @@ public class GnibQueue {
 
 
 }
-
-
-
-
 
 

@@ -32,7 +32,8 @@ public class Main {
             if (pick == 1) {
                 printList();
             } else if (pick == 2) {
-                gnibQueue.queue.add(userBuilder.buildNewUser());
+                gnibQueue.addUser();
+
             } else if (pick == 3) {
                 gnibQueue.addUserFirst();
             } else if (pick == 4) {
